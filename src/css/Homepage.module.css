@@ -3,10 +3,6 @@ body {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   color: #C6CDD5;
-  /* width: 100vw;
-  height: 100vh;
-  background-color: #0D1117;
-  box-sizing: border-box; */
 }
 
 /* .darkMode {
@@ -19,52 +15,90 @@ body {
   align-items: center;
 }
 
-#contentContainer {
+.contentContainer {
   width: 100vw;
   height: 100vh;
   background-color: #0D1117;
+
+  display: grid;
+  place-items: center;
 }
 
-#eclipse {
-  height: 40vh;
-  width: min(70vw, 800px);
-  background-color: #21262D;
+/* .rectangle {
+  height: 80%;
+  width: 80%;
+} */
+
+.circle {
+  /* height: clamp(250px, 38vh, 800px); */
+  /* width: clamp(280px, 80vw, 1200px); */
+  /* width: clamp(); */
+  width: 35%;
   border-radius: 50%;
+  aspect-ratio: 1/1;
+  background-color: #21262D;
+  z-index: 0;
+  position:absolute;
+  transition: border-radius 2s ease-in-out;
+}
+
+.circleRotate {
+  /* width: 35%;
+  border-radius: 50%;
+  aspect-ratio: 1/1; */
+  transition: border-radius 2s ease-in-out;
+  animation: rotation 10s linear;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .textContainer {
-
-  /* border: 1px solid white; */
-
   text-align: center;
   padding: 1rem;
-
   flex-direction: column;
+  width: 80%;
 
-  /* text-wrap: wrap; */
-  
-  h1 {
-    font-family: 'Courier New', Courier, monospace;
-    margin-bottom: 0;
-    /* font-size: 3rem; */
-    /* font-size: max(10vw, 3rem); */
-    font-size: clamp(2rem, 5vw, 3.5rem);
-  }
+  z-index: 1;
+  /* height: 20%; */
 
   p {
-    font-size: 1.3rem;
+    margin: 0;
+    font-size: clamp(1.2rem, 4vw, 2rem);
   }
+}
+
+.typing {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp(2.5rem, 5.9vw, 4.5rem);
+    margin-bottom: 0.5rem;
 }
 
 .purpleText {
     color: #CEA5FB;
 }
 
-.buttonContainer {
-  /* justify-self: center; */
-  width: 10%;
-  padding: 4px;
-  /* background-color: #CEA5FB; */
+/* Make this a Button component? */
+.button {
+  padding: 6px 40px;
+  margin-top: 1.8rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  border-radius: 8px;
+  background-color: #21262D;
+  border: 1px solid #CEA5FB;
+  color: #CEA5FB;
+  transition: 0.3s;
+}
 
-  border: solid white 1px;
+.button:hover {
+  cursor: pointer;
+  background-color: #CEA5FB;
+  border: 1px solid #CEA5FB;
+  color: #21262D;
 }
