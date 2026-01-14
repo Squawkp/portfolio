@@ -2,7 +2,6 @@ body {
   margin: 0px;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  color: #C6CDD5;
 }
 
 /* .darkMode {
@@ -24,30 +23,25 @@ body {
   place-items: center;
 }
 
-/* .rectangle {
-  height: 80%;
-  width: 80%;
-} */
-
-.circle {
-  /* height: clamp(250px, 38vh, 800px); */
-  /* width: clamp(280px, 80vw, 1200px); */
-  /* width: clamp(); */
-  width: 35%;
-  border-radius: 50%;
-  aspect-ratio: 1/1;
+.bgRectangle {
+  height: clamp(300px, calc(1px + 55vh), 700px);
+  width: clamp(280px, calc(1px + 75vw), 1400px);
   background-color: #21262D;
   z-index: 0;
   position:absolute;
-  transition: border-radius 2s ease-in-out;
+  border-radius: 10px;
+  /* transition: all 1.75s ease-in-out; */
+  transition: all 1s ease-in-out;
+
+  /* height: min(90vh, 900px);
+  width: min(88vw, 1800px);
+  margin: 20%; */
 }
 
-.circleRotate {
-  /* width: 35%;
-  border-radius: 50%;
-  aspect-ratio: 1/1; */
-  transition: border-radius 2s ease-in-out;
+.animate {
   animation: rotation 10s linear;
+  /* animation-delay: 2s; */
+  animation-delay: 1.25s;
 }
 
 @keyframes rotation {
@@ -65,8 +59,12 @@ body {
   flex-direction: column;
   width: 80%;
 
+  opacity: 1;
+
   z-index: 1;
   /* height: 20%; */
+
+  color: #C6CDD5;
 
   p {
     margin: 0;

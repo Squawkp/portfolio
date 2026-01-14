@@ -15,15 +15,15 @@ export const Homepage: React.FC<HomepageProps> = ({}) => {
   // const [isDarkModeOn, setIsDarkModeOn] = useState(true);
   
   const navigate = useNavigate();
-  const circleRef = useRef<HTMLDivElement | null>(null);
+  const shapeRef = useRef<HTMLDivElement | null>(null);
   const [TypedText, setTypedText] = useState("");
-  const [isAnimatingRotation, setIsAnimatingRotation] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
   
   const start = TypedText.slice(0, BEGINNING_INDEX);
   const end = TypedText.slice(BEGINNING_INDEX, HEADING_TEXT.length);
   
   useEffect(() => {
-
     // type one char every tick
     const interval = setInterval(() => {
       setTypedText(prev => {
@@ -44,85 +44,118 @@ export const Homepage: React.FC<HomepageProps> = ({}) => {
 
   }, []);
 
-  // once full rotation = loading complete
-    // switch eclipse to a rectangle shape?
-    // button onClick shrinks rectangle to a loading wobbly circle / eclipse
-      // text content fades away upwards, replaced by "Loading..." ?
-    // switches back to rectangle after loading, showing files to different pages
-
-  // wobbly circle animation by
-  // randomising border radius
-  // and rotation animation
   useEffect(() => {
-    if (!isAnimatingRotation) {
+    // handles loading animation
+    if (!isAnimating) {
       return;
     }
     
-    const circle = circleRef.current;
-    if (!circle) {
+    const shape = shapeRef.current;
+    if (!shape) {
       return;
     }
 
-    // wobbly circle effect by randomising border radius
+    // change shape from rectangle -> square -> perfect circle
+    let rectangleHeight = shape.offsetHeight;
+    let rectangleWidth = shape.offsetWidth;
+
+    const shorterSide = Math.min(rectangleHeight, rectangleWidth);
+    shape.style.width = `${shorterSide}px`;
+    shape.style.height = `${shorterSide}px`;
+
+    shape.style.borderRadius = `50%`;
+
     const interval = setInterval(() => {
+      // wobbly circle effect by randomising border radius and rotation animation
       let tl, tr, br, bl;
       let min = 0.3;
       let max = 0.7;
-      // randomise percentages
+
       tl = Math.round((Math.random() * (max - min) + min) * 100);
       tr = Math.round((Math.random() * (max - min) + min) * 100);
       br = Math.round((Math.random() * (max - min) + min) * 100);
       bl = Math.round((Math.random() * (max - min) + min) * 100);
 
       let borderRadius = `${tl}% ${tr}% ${br}% ${bl}%`;
-      circle.style.borderRadius = borderRadius;
-    }, 750);
-    
-    const timeout = setTimeout(() => {
-      clearInterval(interval);
-      setIsAnimatingRotation(false);
-      circle.style.borderRadius = `50%`;
-      console.log('navigate')
-    }, 10000);
+      shape.style.borderRadius = borderRadius;
+    }, 1000);
 
+    let timeout = setTimeout(() => {
+      // reset shape to perfect circle
+      shape.style.borderRadius = `50%`;
+      clearInterval(interval);
+    }, 11000);
+    
+    timeout = setTimeout(() => {
+      // reset shape to rectangle
+      // shape.style.height = `${rectangleHeight}px`;
+      // shape.style.width = `${rectangleWidth}px`;
+      // shape.style.borderRadius = `10px`;
+      shape.style.height = `clamp(300px, calc(1px + 50vh), 700px)`;
+      shape.style.width = `clamp(300px, calc(1px + 85vw), 1200px)`;
+      shape.style.borderRadius = `10px`;
+      
+      setIsAnimating(false);
+      setCurrentStep(3);
+
+      console.log('navigate');
+      // navigate('/MainPage');
+    }, 12000)
+    
 
     return () => {
-    clearInterval(interval);
-    clearTimeout(timeout);
-  };
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  
 
-  // navigate('/MainPage');
+  }, [isAnimating]);
 
-  }, [isAnimatingRotation]);
+  const RenderText = () => {
+    if ( currentStep === 0) {
+      return (
+        <>
+          <h1 className={styles.typing}>
+            <span>
+              {start}
+            </span>
+            <span className={styles.purpleText}>
+              {end}
+            </span>
+          </h1>
+          <p>A Front-End Developer</p>
+          <button
+            className={`${styles.button} ${styles.centeredFlex}`}
+            onClick={handleOnClick}
+          >
+            Load
+          </button>
+        </>
+      )
+    } else if (currentStep === 1) {
+      return <p>Loading...</p>
+    } else {
+      return <></>
+    }
+  }
 
   const handleOnClick = () => {
-    setIsAnimatingRotation(true);
+    setCurrentStep(1);
+    setIsAnimating(true);
+    
   };
 
   return (
     <>
       <div className={`${styles.contentContainer}`}>
           <div 
-            className={`${styles.circle} ${isAnimatingRotation ? styles.circleRotate : ''}`} 
-            ref={circleRef}
+            className={`${styles.bgRectangle} ${isAnimating ? styles.animate : ''}`} 
+            ref={shapeRef}
           >
           </div>
           <div className={`${styles.textContainer} ${styles.centeredFlex}`}>
-            <h1 className={styles.typing}>
-              <span>
-                {start}
-              </span>
-              <span className={styles.purpleText}>
-                {end}
-              </span>
-            </h1>
-            <p>A Front-End Developer</p>
-            <button
-              className={`${styles.button} ${styles.centeredFlex}`}
-              onClick={handleOnClick}
-            >
-              Load
-            </button>
+            {RenderText()}
+
           </div>
         </div>
     </>
