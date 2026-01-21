@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route, HashRouter} from "react-router-dom"
 import { Homepage } from './pages/Homepage'
 import { NoPage } from './pages/NoPage'
+import './App.css';
 
 const App: React.FC = () => {
 
