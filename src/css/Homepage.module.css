@@ -3,7 +3,6 @@
 body {
   margin: 0px;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .darkMode {
@@ -42,13 +41,26 @@ body {
   /* height: clamp(456px, calc(1px + 60vh), 704px); */
 }
 
-.TypingFont {
+/* TASK LIST
+[ ] ADD DOWNLOAD RESUME BUTTON
+[ ] CHECK BUTTON RESPONSIVE SIZING
+[ ] CHECK MAIN CONTENT FLEX BOX SIZING AND RESPONSIVENESS */
+
+.pageHeader {
   font-family: Courier New, Courier, monospace;
   text-align: center;
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 10vw, 4rem);
+  width: 90%;
 }
 
-h1 {
-  font-size: 4em;
+.subHeading {
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+  font-size: clamp(1.2rem, 5vw, 1.7rem);
+  width: 65%;
 }
 
 /* ANIMATIONS */
@@ -67,4 +79,12 @@ h1 {
 @keyframes cursorColourSecondary {
   0% {border-right-color: var(--textColourSecondary);}
   100% {border-right-color: transparent;}
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 600px) {
+  .blinkingCursorAnimation {
+    border-right: 4px solid;
+  }
 }

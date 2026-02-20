@@ -35,13 +35,12 @@ export const Homepage: React.FC<HomepageProps> = ({}) => {
     <>
       <div className={`${styles.pageBackground} ${styles.centreContent} ${styles.darkMode}`}>
         <div className={`${styles.mainContentContainer} ${styles.centreContent}`}>
-          <h1 className={`${styles.TypingFont}`}>
+          <h1 className={`${styles.pageHeader}`}>
             <span>{word1}</span>
             <span>{word2}</span>
             <span className={`${styles.blinkingCursorAnimation} ${styles.colouredText}`}>{word3}</span>
           </h1>
-          <h2>Frontend Developer</h2>
-          <h2>& UI/UX Designer</h2>
+          <h2 className={`${styles.subHeading}`}>Frontend Developer & UI/UX Designer</h2>
         </div>
       </div>
     </>
