@@ -42,9 +42,12 @@ body {
 }
 
 /* TASK LIST
-[ ] ADD DOWNLOAD RESUME BUTTON
-[ ] CHECK BUTTON RESPONSIVE SIZING
-[ ] CHECK MAIN CONTENT FLEX BOX SIZING AND RESPONSIVENESS */
+[x] ADD DOWNLOAD RESUME BUTTON
+    [ ] STYLING BUTTON
+    [ ] CHECK BUTTON RESPONSIVE SIZING
+    [ ] ADD BUTTON FUNCTIONALITY + HOW TO ADD RESUME LINK
+[ ] CHECK MAIN CONTENT FLEX BOX SIZING AND RESPONSIVENESS
+[ ] CLEAN UP BUTTON CLASS */
 
 .pageHeader {
   font-family: Courier New, Courier, monospace;
@@ -61,6 +64,31 @@ body {
   line-height: 1.5;
   font-size: clamp(1.2rem, 5vw, 1.7rem);
   width: 65%;
+}
+
+.button {
+  margin-top: 2rem;
+  /* padding: 8px 24px; */
+  padding: 0.5rem 1rem;
+  font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  color: var(--backgroundColour);
+  background-color: var(--textColourSecondary);
+  border-radius: 10px;
+  border: none;
+  opacity: 1;
+  
+  transition: opacity 0.5s ease-in-out;
+}
+
+.button:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.icon {
+  font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  vertical-align: middle;
+  color: var(--backgroundColour);
 }
 
 /* ANIMATIONS */
