@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../css/Homepage.module.css';
 import { FileDownload } from '@mui/icons-material';
+// import { StyledEngineProvider } from '@mui/material/styles';
 
 type HomepageProps = {
 
@@ -42,10 +43,10 @@ export const Homepage: React.FC<HomepageProps> = ({}) => {
             <span className={`${styles.blinkingCursorAnimation} ${styles.colouredText}`}>{word3}</span>
           </h1>
           <h2 className={`${styles.subHeading}`}>Frontend Developer & UI/UX Designer</h2>
-          <button className={`${styles.button}`}>
-            Download Resume &nbsp;
-            <FileDownload className={`${styles.icon}`}/>
-          </button>
+          <a href="src\assets\UI UX Portfolio - Christina Tu.pdf" download="test pdf" className={`${styles.button} ${styles.centreContent}`}>
+            Download Resume
+            <FileDownload className={`${styles.icon} ${styles.hide}`}/>
+          </a>
         </div>
       </div>
     </>

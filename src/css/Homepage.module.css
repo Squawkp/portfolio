@@ -43,9 +43,9 @@ body {
 
 /* TASK LIST
 [x] ADD DOWNLOAD RESUME BUTTON
-    [ ] STYLING BUTTON
+    [x] STYLING BUTTON
     [ ] CHECK BUTTON RESPONSIVE SIZING
-    [ ] ADD BUTTON FUNCTIONALITY + HOW TO ADD RESUME LINK
+    [x] ADD BUTTON FUNCTIONALITY + HOW TO ADD RESUME LINK
 [ ] CHECK MAIN CONTENT FLEX BOX SIZING AND RESPONSIVENESS
 [ ] CLEAN UP BUTTON CLASS */
 
@@ -67,21 +67,30 @@ body {
 }
 
 .button {
+  box-sizing: border-box;
   margin-top: 2rem;
-  /* padding: 8px 24px; */
   padding: 0.5rem 1rem;
   font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  /* font-weight: bold; */
+  text-decoration: none;
   color: var(--backgroundColour);
   background-color: var(--textColourSecondary);
   border-radius: 10px;
   border: none;
-  opacity: 1;
-  
-  transition: opacity 0.5s ease-in-out;
+  gap: 0px;
+  transition: gap 0.1s linear;
 }
 
-.button:hover{
+.button:hover {
   cursor: pointer;
+  gap: 8px;
+  .icon {
+    max-width: 2rem;
+    opacity: 1;
+  }
+}
+
+.button:active {
   opacity: 0.8;
 }
 
@@ -89,6 +98,11 @@ body {
   font-size: clamp(1.1rem, 4.5vw, 1.5rem);
   vertical-align: middle;
   color: var(--backgroundColour);
+
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width 0.3s linear, opacity 0.3s ease-in-out;
 }
 
 /* ANIMATIONS */
