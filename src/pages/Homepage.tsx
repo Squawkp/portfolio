@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../css/Homepage.module.css';
-import { FileDownload } from '@mui/icons-material';
-// import { StyledEngineProvider } from '@mui/material/styles';
+import { FileDownload, Done } from '@mui/icons-material';
 
 type HomepageProps = {
 
@@ -16,6 +15,8 @@ export const Homepage: React.FC<HomepageProps> = ({}) => {
   const word1 = TypedText.slice(0, FIRST_INDEX);
   const word2 = TypedText.slice(FIRST_INDEX, LAST_INDEX);
   const word3 = TypedText.slice(LAST_INDEX, HEADING_TEXT.length);
+
+  const [isDownloaded, setIsDownloaded] = useState(false);
   
   useEffect(() => {
     // type one char every tick
@@ -33,22 +34,24 @@ export const Homepage: React.FC<HomepageProps> = ({}) => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleDownloadClick = () => {
+    setIsDownloaded(true);
+  }
+
   return (
     <>
-      <div className={`${styles.pageBackground} ${styles.centreContent} ${styles.darkMode}`}>
-        <div className={`${styles.mainContentContainer} ${styles.centreContent}`}>
-          <h1 className={`${styles.pageHeader}`}>
-            <span>{word1}</span>
-            <span>{word2}</span>
-            <span className={`${styles.blinkingCursorAnimation} ${styles.colouredText}`}>{word3}</span>
-          </h1>
-          <h2 className={`${styles.subHeading}`}>Frontend Developer & UI/UX Designer</h2>
-          <a href="src\assets\UI UX Portfolio - Christina Tu.pdf" download="test pdf" className={`${styles.button} ${styles.centreContent}`}>
-            Download Resume
-            <FileDownload className={`${styles.icon} ${styles.hide}`}/>
-          </a>
-        </div>
-      </div>
+        <h1 className={`${styles.pageHeader}`}>
+          {/* <span>{word1}</span>
+          <span>{word2}</span>
+          <span className={`${styles.blinkingCursorAnimation} ${styles.colouredText}`}>{word3}</span> */}
+          
+          {TypedText}
+        </h1>
+        <h2 className={`${styles.subHeading}`}>Frontend Developer & UI/UX Designer</h2>
+        <a href="src\assets\Christina Tu Resume.pdf" download="Christina Tu Resume" className={`${styles.button}`} onClick={handleDownloadClick}>
+          {isDownloaded ? "Downloaded" : "Download Resume"}
+          {isDownloaded ? <Done className={`${styles.icon}`}/> : <FileDownload className={`${styles.icon} ${styles.hide}`}/>}
+        </a>
     </>
   );
 };

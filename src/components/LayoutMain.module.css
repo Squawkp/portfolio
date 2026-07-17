@@ -1,0 +1,33 @@
+body {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.darkMode {
+  color: var(--textColourPrimary);
+  background-color: var(--backgroundColour);
+}
+
+/* .lightMode { } */
+
+.centreContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageBackground {
+  width: 100vw;
+  height: 100vh;
+}
+
+.mainContentContainer {
+  background-color: var(--containerColour);
+  border-radius: 10px;
+  flex-direction: column;
+
+  width: min(88vw, 1496px);
+  height: min(70vh, 704px);
+
+  position: relative;
+}

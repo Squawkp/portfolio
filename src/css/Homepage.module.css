@@ -1,51 +1,6 @@
-/* GENERAL STYLES */
-
-body {
-  margin: 0px;
-  box-sizing: border-box;
-}
-
-.darkMode {
-  color: var(--textColourPrimary);
-  background-color: var(--backgroundColour);
-
-  .colouredText {
-    color: var(--textColourSecondary);
-  }
-}
-
-/* .lightMode { } */
-
 /* HOME PAGE STYLES */
 
-.centreContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pageBackground {
-  width: 100vw;
-  height: 100vh;
-}
-
-.mainContentContainer {
-  background-color: var(--containerColour);
-  border-radius: 10px;
-  flex-direction: column;
-
-  width: min(88vw, 1496px);
-  height: min(70vh, 704px);
-
-  /* width: clamp(320px, calc(1px + 75vw), 1496px); */
-  /* height: clamp(456px, calc(1px + 60vh), 704px); */
-}
-
 /* TASK LIST
-[x] ADD DOWNLOAD RESUME BUTTON
-    [x] STYLING BUTTON
-    [ ] CHECK BUTTON RESPONSIVE SIZING
-    [x] ADD BUTTON FUNCTIONALITY + HOW TO ADD RESUME LINK
 [ ] CHECK MAIN CONTENT FLEX BOX SIZING AND RESPONSIVENESS
 [ ] CLEAN UP BUTTON CLASS */
 
@@ -58,6 +13,10 @@ body {
   width: 90%;
 }
 
+.colouredText {
+  color: var(--textColourSecondary);
+}
+
 .subHeading {
   text-align: center;
   margin: 0;
@@ -67,11 +26,14 @@ body {
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   box-sizing: border-box;
   margin-top: 2rem;
   padding: 0.5rem 1rem;
   font-size: clamp(1.1rem, 4.5vw, 1.5rem);
-  /* font-weight: bold; */
   text-decoration: none;
   color: var(--backgroundColour);
   background-color: var(--textColourSecondary);
