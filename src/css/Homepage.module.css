@@ -4,55 +4,43 @@
 [ ] CHECK MAIN CONTENT FLEX BOX SIZING AND RESPONSIVENESS
 [ ] CLEAN UP BUTTON CLASS */
 
-.pageHeader {
-  font-family: Courier New, Courier, monospace;
-  text-align: center;
-  margin: 0;
-  margin-bottom: 1rem;
-  font-size: clamp(2rem, 10vw, 4rem);
-  width: 90%;
-}
-
-.colouredText {
-  color: var(--textColourSecondary);
-}
-
 .subHeading {
   text-align: center;
   margin: 0;
   line-height: 1.5;
-  font-size: clamp(1.2rem, 5vw, 1.7rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
   width: 65%;
 }
 
-.button {
+.buttonDownload {
   display: flex;
   align-items: center;
   justify-content: center;
 
   box-sizing: border-box;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   padding: 0.5rem 1rem;
-  font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
   text-decoration: none;
   color: var(--backgroundColour);
   background-color: var(--textColourSecondary);
-  border-radius: 10px;
+  border-radius: 0.5rem;
   border: none;
   gap: 0px;
   transition: gap 0.1s linear;
 }
 
-.button:hover {
+.buttonDownload:hover {
   cursor: pointer;
   gap: 8px;
-  .icon {
-    max-width: 2rem;
-    opacity: 1;
-  }
 }
 
-.button:active {
+.buttonDownload:hover .icon {
+  max-width: 2rem;
+  opacity: 1;
+}
+
+.buttonDownload:active {
   opacity: 0.8;
 }
 
@@ -87,8 +75,12 @@
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 600px) {
+@media screen and (orientation: portrait) and (max-width: 640px) {
   .blinkingCursorAnimation {
     border-right: 4px solid;
+  }
+
+  .buttonDownload {
+    margin-top: 2rem;
   }
 }

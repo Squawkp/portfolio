@@ -26,8 +26,19 @@ body {
   border-radius: 10px;
   flex-direction: column;
 
-  width: min(88vw, 1496px);
-  height: min(70vh, 704px);
+  /* width: min(88vw, 1496px); */
+  /* height: min(70vh, 704px); */
+  width: min(88vw, 1536px);
+  height: min(75vh, 864px);
 
   position: relative;
+}
+
+/* MOBILE SCREENS */
+@media screen and (orientation: portrait) and (max-width: 640px) {
+  .mainContentContainer {
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    max-height: 962px;
+  }
 }

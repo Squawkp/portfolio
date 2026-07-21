@@ -7,14 +7,12 @@ type HomepageProps = {
 }
 
 const HEADING_TEXT = `Hi I'm Christina!`;
-const FIRST_INDEX = 3;
-const LAST_INDEX = 7;
+const COLOUR_INDEX = 7;
 
 export const Homepage: React.FC<HomepageProps> = ({}) => {
   const [TypedText, setTypedText] = useState("");
-  const word1 = TypedText.slice(0, FIRST_INDEX);
-  const word2 = TypedText.slice(FIRST_INDEX, LAST_INDEX);
-  const word3 = TypedText.slice(LAST_INDEX, HEADING_TEXT.length);
+  const whiteText = TypedText.slice(0, COLOUR_INDEX);
+  const purpleText = TypedText.slice(COLOUR_INDEX, HEADING_TEXT.length);
 
   const [isDownloaded, setIsDownloaded] = useState(false);
   
@@ -38,20 +36,30 @@ export const Homepage: React.FC<HomepageProps> = ({}) => {
     setIsDownloaded(true);
   }
 
-  return (
-    <>
-        <h1 className={`${styles.pageHeader}`}>
-          {/* <span>{word1}</span>
-          <span>{word2}</span>
-          <span className={`${styles.blinkingCursorAnimation} ${styles.colouredText}`}>{word3}</span> */}
-          
-          {TypedText}
-        </h1>
-        <h2 className={`${styles.subHeading}`}>Frontend Developer & UI/UX Designer</h2>
-        <a href="src\assets\Christina Tu Resume.pdf" download="Christina Tu Resume" className={`${styles.button}`} onClick={handleDownloadClick}>
-          {isDownloaded ? "Downloaded" : "Download Resume"}
-          {isDownloaded ? <Done className={`${styles.icon}`}/> : <FileDownload className={`${styles.icon} ${styles.hide}`}/>}
-        </a>
-    </>
-  );
+  return <>
+    <h1 className={`pageHeader`}>
+      <span>{whiteText}</span>
+      <span className={`colouredText ${styles.blinkingCursorAnimation}`}>
+        {purpleText}
+      </span>          
+    </h1>
+
+    <h2 className={styles.subHeading}>Frontend Developer & UI/UX Designer</h2>
+
+    <a
+      href="src\assets\Christina Tu Resume.pdf" download="Christina Tu Resume"
+      className={styles.buttonDownload} onClick={handleDownloadClick}
+    >
+      { isDownloaded
+        ? <>
+          {'Downloaded'}
+          <Done className={styles.icon}/>
+        </>
+        : <>
+          {'Download Resume'}
+          <FileDownload className={`${styles.icon} ${styles.hide}`}/>
+        </>
+      }
+    </a>
+  </>
 };

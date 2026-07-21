@@ -6,3 +6,23 @@
   
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.pageHeader {
+  font-family: Courier New, Courier, monospace;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  font-size: 4rem;
+  width: 90%;
+}
+
+.colouredText {
+  color: var(--textColourSecondary);
+}
+
+/* MEDIA QUERIES */
+@media screen and (orientation: portrait) and (max-width: 640px) {
+  .pageHeader {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+}
