@@ -1,0 +1,77 @@
+/* ELEMENT STYLES */
+
+.header {
+  text-align: left;
+  width: 75%;
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+  /* TODO: REMOVE / DECREASE MARGIN BOTTOM FOR MOBILE */
+}
+
+.header__title {
+  width: 100%;
+  margin-bottom: 0px;
+  color: var(--textColourSecondary);
+}
+
+.header__text {
+  line-height: 1.5rem;
+  /* TODO: REMOVE / DECREASE LINE HEIGHT IN MOBILE */
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+.flex__child {
+  width: 50%;
+}
+
+.section__heading {
+  margin-top: 1rem;
+}
+
+.list {
+  margin: 0;
+}
+
+.list__heading {
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* MEDIA QUERIES */
+
+/* @media screen and (orientation: portrait) and (max-width: 640px) { */
+@media screen and (orientation: portrait) {
+  .header {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .header__title {
+    font-size: 2rem;
+  }
+
+  .header__text {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+  }
+
+  .flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  
+  .flex__child {
+    width: 100%;
+    border: 1px solid var(--textColourPrimary);
+    border-radius: 1rem;
+    box-sizing: border-box;
+    padding: 0.75rem;
+  }
+}

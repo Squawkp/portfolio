@@ -1,0 +1,67 @@
+/* ELEMENT STYLES */
+
+.skillHeader__text {
+  font-family: Courier New, Courier, monospace;
+  color: var(--textColourSecondary);
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.list {
+  margin: 0;
+  padding-inline-start: 2rem;
+}
+
+.list__heading {
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.list__text {
+  line-height: 1.5rem;
+}
+
+/* MEDIA QUERIES */
+
+/* @media screen and (orientation: portrait) and (max-width: 640px) { */
+@media screen and (orientation: portrait) {
+  .btnAccordian {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  .btnAccordian__text {
+    font-family: Courier New, Courier, monospace;
+    color: var(--textColourSecondary);
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  .btnAccordian__icon {
+    font-family: Courier New, Courier, monospace;
+    color: var(--textColourSecondary);
+    align-self: center;
+    font-size: 1.1rem;
+  }
+
+  .skillHeader__text {
+    font-size: 0.9rem;
+  }
+  
+  .list__text {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+  }
+
+  .list__heading {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+}
