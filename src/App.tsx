@@ -1,8 +1,8 @@
 import React from 'react'
 import { Routes, Route, HashRouter} from "react-router-dom"
 import { Homepage } from './pages/Homepage'
-import { Projects } from './pages/Projects'
-import { Navigate } from 'react-router-dom'
+// import { Projects } from './pages/Projects'
+// import { Navigate } from 'react-router-dom'
 import './App.css';
 import { OldHomepageDemo } from './pages/OldHompageDemo'
 import { LayoutMain } from './components/LayoutMain'
@@ -14,7 +14,7 @@ const App: React.FC = () => {
     <Routes>
       <Route element={<LayoutMain/>}>
         <Route index element={<Homepage/>} />
-        <Route path="projects" element={<Projects/>}/>
+        {/* <Route path="projects" element={<Projects/>}/> */}
         <Route path="about-me" element={<AboutMe/>}/>
         {/* <Route path="*" element={<Navigate to="/" replace/>}/> */}
         {/* Add a 404 page not found? */}

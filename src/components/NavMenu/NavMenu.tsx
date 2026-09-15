@@ -12,7 +12,7 @@ const NAV_ITEMS = [
 
 export function NavMenu() {
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile] = useState(window.innerWidth < 768);
   const [isOpen, setIsOpen] = useState(false);
 
   function handleOnClick() {

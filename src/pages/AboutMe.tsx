@@ -12,7 +12,7 @@ export function AboutMe() {
     // TODO: WHY DOES LANDSCAPE STILL LOG PORTRAIT?
     console.log(isVertical);
 
-    const [activeSection, setActiveSection] = useState<string>('Experience');
+    // const [activeSection, setActiveSection] = useState<string>('Experience');
     // 
   
   // track orientation
