@@ -37,14 +37,14 @@ export const Homepage: React.FC<HomepageProps> = ({}) => {
   }
 
   return <>
-    <h1 className={`pageHeader`}>
+    <h1 className={`pageHeader ${styles.centerText}`}>
       <span>{whiteText}</span>
       <span className={`colouredText ${styles.blinkingCursorAnimation}`}>
         {purpleText}
       </span>          
     </h1>
 
-    <h2 className={styles.subHeading}>Frontend Developer & UI/UX Designer</h2>
+    <h2 className={styles.subHeading}>Frontend Developer & Software Engineer</h2>
 
     <a
       href="src\assets\Christina Tu Resume.pdf" download="Christina Tu Resume"

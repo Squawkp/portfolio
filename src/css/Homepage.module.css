@@ -4,12 +4,17 @@
 [ ] CHECK MAIN CONTENT FLEX BOX SIZING AND RESPONSIVENESS
 [ ] CLEAN UP BUTTON CLASS */
 
+.centerText {
+  text-align: center;
+}
+
 .subHeading {
   text-align: center;
   margin: 0;
   line-height: 1.5;
   font-size: clamp(1rem, 3vw, 1.5rem);
   width: 65%;
+  font-weight: normal;
 }
 
 .buttonDownload {
@@ -24,7 +29,7 @@
   text-decoration: none;
   color: var(--backgroundColour);
   background-color: var(--textColourSecondary);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   border: none;
   gap: 0px;
   transition: gap 0.1s linear;

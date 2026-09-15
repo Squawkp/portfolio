@@ -1,17 +1,15 @@
 import { Outlet } from "react-router";
 import styles from './LayoutMain.module.css';
-import { Navbar } from './Navbar/Navbar';
+import { NavMenu } from "./NavMenu/NavMenu.tsx";
+
 
 export function LayoutMain() {
-
-  return (
-    <>
-      <div className={`${styles.pageBackground} ${styles.centreContent} ${styles.darkMode}`}>
-        <div className={`${styles.mainContentContainer} ${styles.centreContent}`}>
-          <Navbar/>
-          <Outlet/>
-        </div>
+  return <>
+    <div className={`${styles.pageBackground} ${styles.centreContent} ${styles.darkMode}`}>
+      <div className={`${styles.mainContentContainer} ${styles.centreContent}`}>
+        <NavMenu/>
+        <Outlet/>
       </div>
-    </>
-  );
+    </div>
+  </>
 };

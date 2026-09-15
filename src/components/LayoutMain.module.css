@@ -26,10 +26,12 @@ body {
   border-radius: 10px;
   flex-direction: column;
 
+  box-sizing: border-box;
   /* width: min(88vw, 1496px); */
   /* height: min(70vh, 704px); */
   width: min(88vw, 1536px);
   height: min(75vh, 864px);
+  padding: 3rem;
 
   position: relative;
 }
@@ -40,5 +42,6 @@ body {
     width: calc(100% - 2rem);
     height: calc(100% - 2rem);
     max-height: 962px;
+    padding: 1rem;
   }
 }

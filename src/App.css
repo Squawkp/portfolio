@@ -9,7 +9,7 @@
 
 .pageHeader {
   font-family: Courier New, Courier, monospace;
-  text-align: center;
+  /* text-align: center; */
   margin: 0;
   margin-bottom: 0.5rem;
   font-size: 4rem;
